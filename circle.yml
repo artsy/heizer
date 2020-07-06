@@ -1,0 +1,16 @@
+machine:
+  environment:
+    RACK_ENV: test
+
+dependencies:
+  pre:
+    - git clone https://github.com/dylanfareed/form-at.git
+
+database:
+  override:
+    - echo "skip database setup"
+
+test:
+  override:
+    - bash form-at/ruby/rspec.sh
+    - bash form-at/ruby/rubocop.sh
